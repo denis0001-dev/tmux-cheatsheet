@@ -1,0 +1,203 @@
+# tmux
+# Terminal multiplexer, with multiple sessions with windows, panes support
+# https://github.com/tmux/tmux
+#
+# toc:
+#  ~window
+#  ~pane
+#  ~misc
+#  ~copymode
+#  ~layout
+
+# Start a new session:
+tmux
+
+# Start a new named session:
+tmux new-session -s name
+
+# List existing sessions:
+tmux ls
+
+# Attach to the most recently used session:
+tmux attach-session
+
+# Attach to a named session:
+tmux attach-session -t name
+
+#  windows (tabs)
+# ---
+#  c  create window
+#  w  list windows
+#  n  next window
+#  p  previous window
+#  f  find window
+#  ,  name window
+#  &  kill window
+
+#  panes (splits)
+# ---
+#  %  vertical split
+#  "  horizontal split
+#  M-1 select-layout even-horizontal
+#  M-2 select-layout even-vertical
+#
+#  →  go to the left (right, top, bottom) panel
+#  C-→  resize panel to the left (right, top, bottom) panel
+#  o  swap panes
+#  q  show pane numbers (type the key to go to the pane)
+#  x  kill pane
+#  +  break pane into window (e.g. to select text by mouse to copy)
+#  -  restore pane from window
+#  ⍽  (space) toggle between layouts
+#  {  (Move the current pane left)
+#  }  (Move the current pane right)
+#  z  toggle pane zoom
+
+#  sessions
+# ---
+#  )  switch to next session
+#  (  switch to previous session
+
+#  misc
+# ---
+#  d  detach
+#  t  big clock
+#  ?  list shortcuts
+#  :  prompt
+
+#  copy mode (copymode)
+# ---
+#  [  go into copy mode
+#  ]  paste into the current window
+#
+#     setw -g mode-keys vi  # to switch into vi mode
+#
+#  Function                Vi             Emacs
+#  -----------------------------------------------
+#  Back to indentation     ^              M-m
+#  Start selection         Space          C-space
+#  Clear selection         Escape         C-g
+#  Copy selection          Enter          M-w
+#  Cursor down             j              Down
+#  Cursor left             h              Left
+#  Cursor right            l              Right
+#  Cursor to bottom line   L
+#  Cursor to middle line   M              M-r
+#  Cursor to top line      H              M-R
+#  Cursor up               k              Up
+#  Delete entire line      d              C-u
+#  Delete to end of line   D              C-k
+#  End of line             $              C-e
+#  Goto line               :              g
+#  Half page down          C-d            M-Down
+#  Half page up            C-u            M-Up
+#  Next page               C-f            Page down
+#  Next word               w              M-f
+#  Paste buffer            p              C-y
+#  Previous page           C-b            Page up
+#  Previous word           b              M-b
+#  Quit mode               q              Escape
+#  Scroll down             C-Down or J    C-Down
+#  Scroll up               C-Up or K      C-Up
+#  Search again            n              n
+#  Search backward         ?              C-r
+#  Search forward          /              C-s
+#  Start of line           0              C-a
+#  Start selection         Space          C-Space
+#  Transpose chars                        C-t
+
+#  layout
+# ---
+#  alt-1  select-layout even-horizontal
+#  alt-2  select-layout even-vertical
+
+# Sources:
+# https://gist.github.com/MohamedAlaa/2961058
+# https://gist.github.com/michaellihs/b6d46fa460fa5e429ea7ee5ff8794b96
+
+ cheat:tmux 
+# To start tmux:
+tmux
+
+# To detach from tmux:
+Ctrl-b d
+
+# To restore tmux session:
+tmux attach
+
+# To detach an already attached session (great if you are moving devices with different screen resolutions):
+tmux attach -d 
+
+# To display session:
+tmux ls
+
+# To rename session:
+Ctrl-b $
+
+# To switch session:
+Ctrl-b s
+
+# To start a shared session:
+tmux -S /tmp/your_shared_session
+chmod 777 /tmp/your_shared_session
+
+# To help screen (Q to quit):
+Ctrl-b ?
+
+# To scroll in window:
+Ctrl-b PageUp/PageDown
+
+# To reload configuration file
+Ctrl-b : source-file /path/to/file
+
+# To create a window:
+Ctrl-b c
+
+# To go next window:
+Ctrl-b n
+
+# To destroy a window:
+Ctrl-b x
+
+# To switch between windows:
+Ctrl-b [0-9]
+Ctrl-b Arrows
+
+# To split windows horizontally:
+Ctrl-b %
+
+# To split windows vertically:
+Ctrl-b "
+
+# To swap windows:
+Ctrl-b :swap-window -s [0-9] -t [0-9]
+
+ tldr:tmux 
+# tmux
+# Terminal multiplexer. It allows multiple sessions with windows, panes, and more.
+# See also `zellij` and `screen`.
+# More information: <https://github.com/tmux/tmux>.
+
+# Start a new session:
+tmux
+
+# Start a new named session:
+tmux new -s name
+
+# List existing sessions:
+tmux ls
+
+# Attach to the most recently used session:
+tmux attach
+
+# Detach from the current session (inside a tmux session):
+Ctrl-B d
+
+# Create a new window (inside a tmux session):
+Ctrl-B c
+
+# Switch between sessions and windows (inside a tmux session):
+Ctrl-B w
+
+# Kill a session by name:
+tmux kill-session -t name
